@@ -4,60 +4,93 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\User;
 
 
 class UserController extends Controller
 {
-    public function users(){
+    public function users()
+    {
         return view('master');
     }
 
-    public function createUser(){
+    public function createUser()
+    {
         return view('backend.pages.users.create');
     }
 
-    public function showUserDetails(){
+    public function showUserDetails()
+    {
         $user = User::all();
 
         return view('backend.pages.users.details', compact('user'));
     }
 
-    public function showRegisterPage(){
+    public function showRegisterPage()
+    {
         return view('frontend.pages.registration');
     }
 
-    public function login(){
-        return view('frontend.pages.login');
-    }
+    public function storeUser(Request $request)
+    {
 
-    public function storeUser(Request $request){
-        
         $validate = $request->validate([
             'userName' => 'required',
-            'email' => 'bail|required|email:rfc,dns|min:6|unique:users,email',
+            'email' => 'bail|required|email:rfc,dns|unique:users,email',
             'password' => 'required|min:6|confirmed',
             'address' => 'required',
             'phone' => 'required|unique:users,phone',
+            'image' => 'image',
         ]);
 
+        $img = $request->file('image');
+
+        $file_name = uniqid('image_', true) . Str::random(10) . '.' . $img->getClientOriginalExtension();
+
+
+        if ($img->isValid()) {
+            $img->storeAs('products', $file_name);
+        }
+
         User::create([
-            'name'=>$request->userName,
-            'email'=>strtolower($request->email),
-            'password'=>bcrypt($request->password),
-            'address'=>$request->address,
-            'phone'=>$request->phone,
+            'name' => $request->userName,
+            'email' => strtolower($request->email),
+            'password' => bcrypt($request->password),
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'image' => $file_name,
 
         ]);
 
         return redirect()->back();
     }
 
-    public function processLogin(){
+    public function login()
+    {
+        return view('frontend.pages.login');
+    }
+
+    public function processLogin(Request $request)
+    {
+        $credentials = $request->except(['_token']);
 
         $validate = $request->validate([
-            'email'=>'required',
-            'password'=>'required|min:6',
+            'email' => 'required|email:rfc,dns',
+            'password' => 'required|min:6',
         ]);
+
+        if (auth()->attempt($credentials)) {
+            return redirect()->route('home');
+        }
+
+        return redirect()->back();
+    }
+
+    public function doLogout()
+    {
+        auth()->logout();
+
+        return redirect()->route('login');
     }
 }

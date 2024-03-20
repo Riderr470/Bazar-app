@@ -1,7 +1,8 @@
-@extends('backend.master')
+<!-- @extends('backend.master') -->
 
 
 @section('content')
+
 
 <h1>View All Products</h1>
 
@@ -24,7 +25,7 @@
       <th scope="row">{{ $p->id }}</th>
       <td>{{$p->productName}}</td>
       <td>{{$p->price}}</td>
-      <td>{{$p->description}}</td>
+      <td class="text-truncate" style="max-width: 150px">{{$p->description}}</td>
       <td>{{$p->quantity}}</td>
       <td>{{$p->status}}</td>
       <td>{{$p->created_at}}</td>

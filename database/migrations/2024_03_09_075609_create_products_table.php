@@ -18,6 +18,7 @@ return new class extends Migration
             $table->longText('description');
             $table->integer('quantity');
             $table->string('status')->default('available');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

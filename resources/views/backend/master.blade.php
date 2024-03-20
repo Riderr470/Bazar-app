@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Market Bazar</title>
     <!-- plugins:css -->
+    
     <link rel="stylesheet" href="https://demo.bootstrapdash.com/connect-plus-free/jquery/template/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://demo.bootstrapdash.com/connect-plus-free/jquery/template/assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="https://demo.bootstrapdash.com/connect-plus-free/jquery/template/assets/vendors/css/vendor.bundle.base.css">

@@ -21,7 +21,18 @@
           </div>
           
         <ul class="navbar-nav navbar-nav-right">
-        
+          @auth()
+          <li class="nav-item dropdown">
+            <a class="btn btn-dark btn-sm" href="{{route('register')}}">Profile{{ optional(auth()->user())->userName }}</a>    
+          </li> 
+
+          <li class="nav-item dropdown">
+            <span class="mx-2"></span>
+            <a class="btn btn-dark btn-sm" href="{{route('logout')}}">Logout</a>    
+          </li> 
+          @endauth
+          
+          @guest()
           <li class="nav-item dropdown">
             <a class="btn btn-dark btn-sm" href="{{route('register')}}">Register</a>    
           </li> 
@@ -30,6 +41,8 @@
             <span class="mx-2"></span>
             <a class="btn btn-dark btn-sm" href="{{route('login')}}">Login</a>    
           </li> 
+          @endguest
+          
 
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">

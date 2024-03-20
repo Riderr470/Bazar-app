@@ -23,16 +23,17 @@ Route::get('/', [WelcomeController::class, 'index']);
 
 //backend
 // admin
-Route::name('admin.')->prefix('admin')->group(function(){
+
+
+Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/order', [AdminController::class, 'orders'])->name('orders');
-
 });
 
 
 //product
-Route::name('product.')->prefix('products')->group(function(){
+Route::name('product.')->prefix('products')->group(function () {
 
     Route::get('/create', [ProductController::class, 'createProduct'])->name('create');
     Route::post('/create', [ProductController::class, 'storeProduct']);
@@ -41,12 +42,22 @@ Route::name('product.')->prefix('products')->group(function(){
 
 
 //user
-Route::name('user.')->prefix('User')->group(function(){
+Route::name('user.')->prefix('User')->group(function () {
 
     Route::get('/create', [UserController::class, 'createUser'])->name('create');
     Route::post('/create', [UserController::class, 'storeUser']);
 
     Route::get('/list', [UserController::class, 'showUserDetails'])->name('details');
+});
+
+
+//order
+Route::name('order.')->prefix('Order')->group(function () {
+
+    Route::get('/create', [UserController::class, 'createOrder'])->name('create');
+    Route::post('/create', [UserController::class, 'storeOrder']);
+
+    Route::get('/list', [UserController::class, 'showOrders'])->name('details');
 });
 
 
@@ -61,11 +72,8 @@ Route::post('/Sign-up', [UserController::class, 'storeUser']);
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'processLogin']);
 
+Route::get('/logout', [UserController::class, 'doLogout'])->name('logout');
+
 
 
 // Route::get('/Users', [UserController::class, 'users']);
-
-
-
-
-
