@@ -53,4 +53,12 @@ class ProductController extends Controller
         $product = Product::all();
         return view("backend.pages.products.lists", compact('product'));
     }
+
+
+    public function showProductDetails($id)
+    {
+        $productDetails = Product::find($id);
+
+        return view('frontend.pages.productDetails', compact('productDetails'));
+    }
 }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
 
@@ -54,23 +55,25 @@ Route::name('user.')->prefix('User')->group(function () {
 //order
 Route::name('order.')->prefix('Order')->group(function () {
 
-    Route::get('/create', [UserController::class, 'createOrder'])->name('create');
-    Route::post('/create', [UserController::class, 'storeOrder']);
+    Route::get('/create', [OrderController::class, 'createOrder'])->name('create');
+    Route::post('/create', [OrderController::class, 'storeOrder']);
 
-    Route::get('/list', [UserController::class, 'showOrders'])->name('details');
+    Route::get('/list', [OrderController::class, 'showOrders'])->name('details');
 });
 
 
 
 //frontend
 
-Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'processLogin']);
 
 Route::get('/Sign-up', [UserController::class, 'showRegisterPage'])->name('register');
 Route::post('/Sign-up', [UserController::class, 'storeUser']);
 
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login', [UserController::class, 'processLogin']);
+Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
+Route::get('/product/details/{id}', [ProductController::class, 'showProductDetails'])->name('product.details');
+
 
 Route::get('/logout', [UserController::class, 'doLogout'])->name('logout');
 

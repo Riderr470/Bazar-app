@@ -41,16 +41,23 @@ class UserController extends Controller
             'password' => 'required|min:6|confirmed',
             'address' => 'required',
             'phone' => 'required|unique:users,phone',
-            'image' => 'image',
+            'image' => 'nullable|image',
         ]);
 
-        $img = $request->file('image');
-
-        $file_name = uniqid('image_', true) . Str::random(10) . '.' . $img->getClientOriginalExtension();
+        if ($request->file) {
 
 
-        if ($img->isValid()) {
-            $img->storeAs('products', $file_name);
+            $img = $request->file('image');
+
+            $file_name = uniqid('image_', true) . Str::random(10) . '.' . $img->getClientOriginalExtension();
+
+
+            if ($img->isValid()) {
+                $img->storeAs('users_img', $file_name);
+            }
+        } else {
+
+            $file_name = null;
         }
 
         User::create([

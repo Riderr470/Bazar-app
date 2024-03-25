@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -12,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('');
+        return view('backend.pages.order');
     }
 
     /**
@@ -20,7 +22,7 @@ class OrderController extends Controller
      */
     public function createOrder()
     {
-        return view('backend.pages.order');
+        return view('backend.pages.orders.create');
     }
 
     /**
@@ -28,15 +30,19 @@ class OrderController extends Controller
      */
     public function storeOrder(Request $request)
     {
-        //
+        dd($request->all());
+        Order::create([]);
+        return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function showOrders()
     {
-        //
+        $data = Product::all();
+
+        return view('backend.pages.orders.orderDetails', compact('data'));
     }
 
     /**
