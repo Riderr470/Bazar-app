@@ -74,6 +74,7 @@ Route::post('/Sign-up', [UserController::class, 'storeUser']);
 Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
 Route::get('/product/details/{id}', [ProductController::class, 'showProductDetails'])->name('product.details');
 
+Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
 
 Route::get('/logout', [UserController::class, 'doLogout'])->name('logout');
 

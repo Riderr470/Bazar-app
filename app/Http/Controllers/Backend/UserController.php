@@ -39,8 +39,10 @@ class UserController extends Controller
             'userName' => 'required',
             'email' => 'bail|required|email:rfc,dns|unique:users,email',
             'password' => 'required|min:6|confirmed',
-            'address' => 'required',
-            'phone' => 'required|unique:users,phone',
+            'dob' => 'nullable',
+            'age' => 'nullable',
+            'address' => 'nullable',
+            'phone' => 'nullable',
             'image' => 'nullable|image',
         ]);
 
@@ -57,15 +59,13 @@ class UserController extends Controller
             }
         } else {
 
-            $file_name = null;
+            $file_name = 'default.jpg';
         }
 
         User::create([
             'name' => $request->userName,
             'email' => strtolower($request->email),
             'password' => bcrypt($request->password),
-            'address' => $request->address,
-            'phone' => $request->phone,
             'image' => $file_name,
 
         ]);
@@ -86,6 +86,7 @@ class UserController extends Controller
             'email' => 'required|email:rfc,dns',
             'password' => 'required|min:6',
         ]);
+
 
         if (auth()->attempt($credentials)) {
             return redirect()->route('home');

@@ -21,18 +21,18 @@
 
     <ul class="navbar-nav navbar-nav-right">
       @auth()
-      <li class="nav-item nav-profile dropdown">
+      <li class="nav-item nav-profile dropdown" style="margin-right: 100px;">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">
-            <img src="assets/images/faces/face28.png" alt="image">
+            <img src="{{ asset('app/users/' . auth()->user()->image) }}" alt="image">
           </div>
           <div class="nav-profile-text">
-            <p class="mb-1 text-black">Henry Klein</p>
+            <p class="mb-1 text-black">{{auth()->user()->name}}</p>
           </div>
         </a>
         <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
           <div class="p-3 text-center bg-primary">
-            <img class="img-avatar img-avatar48 img-avatar-thumb" src="assets/images/faces/face28.png" alt="">
+            <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('app/users/' . auth()->user()->image) }}" alt="">
           </div>
           <div class="p-2">
             <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
@@ -60,7 +60,7 @@
               <span>Lock Account</span>
               <i class="mdi mdi-lock ms-1"></i>
             </a>
-            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('logout')}}">
               <span>Log Out</span>
               <i class="mdi mdi-logout ms-1"></i>
             </a>
@@ -69,14 +69,7 @@
       </li>
 
 
-      <li class="nav-item dropdown">
-        <a class="btn btn-dark btn-sm" href="{{route('register')}}">Profile{{ optional(auth()->user())->userName }}</a>
-      </li>
 
-      <li class="nav-item dropdown">
-        <span class="mx-2"></span>
-        <a class="btn btn-dark btn-sm" href="{{route('logout')}}">Logout</a>
-      </li>
       @endauth
 
       @guest()

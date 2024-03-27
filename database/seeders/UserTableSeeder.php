@@ -17,9 +17,11 @@ class UserTableSeeder extends Seeder
             'name' => 'Ridan',
             'email' => 'Ridan@gmail.com',
             'password' => bcrypt('123456'),
-            'address' => ' ',
-            'phone' => ' ',
-            'image' => ' ',
+            'address' => null,
+            'dob' => null,
+            'age' => 24,
+            'phone' => null,
+            'image' => null,
             'role' => 'admin'
         ]);
     }
