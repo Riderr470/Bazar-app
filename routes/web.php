@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdminController;
+use App\Http\Controllers\Backend\BannerController;
+use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -30,6 +32,11 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/order', [AdminController::class, 'orders'])->name('orders');
+
+    Route::get('/banner', [AdminController::class, 'createBanner'])->name('banner');
+    Route::post('/banner', [AdminController::class, 'storeBanner']);
+    Route::get('/home/banner/{id}', [AdminController::class, 'editbannerForm'])->name('edit.banner');
+    Route::put('/home/banner/edit{id}', [AdminController::class, 'updateBanner'])->name('home.banner.edit');
 });
 
 
@@ -61,6 +68,35 @@ Route::name('order.')->prefix('Order')->group(function () {
     Route::get('/list', [OrderController::class, 'showOrders'])->name('details');
 });
 
+//category
+Route::name('category.')->prefix('Category')->group(function () {
+
+    Route::get('/create', [CategoryController::class, 'createCategory'])->name('create');
+    Route::post('/create', [CategoryController::class, 'storeCategory']);
+
+    Route::get('/list', [CategoryController::class, 'listCategory'])->name('details');
+});
+
+//wishlist
+Route::name('banner.')->prefix('banner')->group(function () {
+    Route::get('/create', [BannerController::class, 'create'])->name('create');
+    Route::post('/create', [BannerController::class, 'store']);
+
+    Route::get('/list', [BannerController::class, 'list'])->name('list');
+});
+
+//wishlist
+Route::name('wishlist.')->prefix('wishlist')->group(function () {
+});
+
+
+//review or rating
+Route::name('review.')->prefix('review')->group(function () {
+});
+
+
+
+
 
 
 //frontend
@@ -68,15 +104,22 @@ Route::name('order.')->prefix('Order')->group(function () {
 Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/login', [UserController::class, 'processLogin']);
 
+Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
+
 Route::get('/Sign-up', [UserController::class, 'showRegisterPage'])->name('register');
 Route::post('/Sign-up', [UserController::class, 'storeUser']);
 
-Route::get('/home', [HomeController::class, 'viewHome'])->name('home');
+// Route::group(['middleware' => 'role:user'], function () {
+
+
 Route::get('/product/details/{id}', [ProductController::class, 'showProductDetails'])->name('product.details');
 
-Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
+Route::get('/user/profile/{id}', [UserController::class, 'userProfile'])->name('user.profile');
+Route::put('/user/profile/edit{id}', [UserController::class, 'editUserProfile'])->name('user.profile.edit');
 
 Route::get('/logout', [UserController::class, 'doLogout'])->name('logout');
+
+// });
 
 
 

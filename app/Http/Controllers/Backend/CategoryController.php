@@ -3,46 +3,45 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Order;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('backend.pages.order');
+        //
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createOrder()
+    public function createCategory()
     {
-        return view('backend.pages.orders.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function storeOrder(Request $request)
+    public function storeCategory(Request $request)
     {
-        dd($request->all());
-        Order::create([]);
-        return redirect()->back();
+        //
+    }
+
+    public function listCategory(Request $request)
+    {
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function showOrders()
+    public function show(string $id)
     {
-        $data = Order::all();
-
-        return view('backend.pages.orders.orderDetails', compact('data'));
+        //
     }
 
     /**

@@ -7,11 +7,34 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         return view("backend.pages.dashboard");
     }
 
-    public function orders(){
+    public function orders()
+    {
+        return view("backend.pages.orders");
+    }
+
+
+    public function createBanner()
+    {
+        return view("backend.pages.orders");
+    }
+
+    public function storeBanner()
+    {
+        return view("backend.pages.orders");
+    }
+
+    public function editBannerForm()
+    {
+        return view("backend.pages.orders");
+    }
+
+    public function updateBanner()
+    {
         return view("backend.pages.orders");
     }
 }

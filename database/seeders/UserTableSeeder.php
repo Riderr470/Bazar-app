@@ -19,9 +19,8 @@ class UserTableSeeder extends Seeder
             'password' => bcrypt('123456'),
             'address' => null,
             'dob' => null,
-            'age' => 24,
+            'age' => null,
             'phone' => null,
-            'image' => null,
             'role' => 'admin'
         ]);
     }

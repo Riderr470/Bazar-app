@@ -20,7 +20,9 @@
     </div>
 
     <ul class="navbar-nav navbar-nav-right">
+
       @auth()
+
       <li class="nav-item nav-profile dropdown" style="margin-right: 100px;">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">
@@ -30,10 +32,12 @@
             <p class="mb-1 text-black">{{auth()->user()->name}}</p>
           </div>
         </a>
+
         <div class="dropdown-menu navbar-dropdown dropdown-menu-right p-0 border-0 font-size-sm" aria-labelledby="profileDropdown" data-x-placement="bottom-end">
           <div class="p-3 text-center bg-primary">
             <img class="img-avatar img-avatar48 img-avatar-thumb" src="{{ asset('app/users/' . auth()->user()->image) }}" alt="">
           </div>
+
           <div class="p-2">
             <h5 class="dropdown-header text-uppercase ps-2 text-dark">User Options</h5>
             <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
@@ -43,34 +47,35 @@
                 <i class="mdi mdi-email-open-outline ms-1"></i>
               </span>
             </a>
-            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
+
+            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('user.profile', auth()->user()->id)}}">
               <span>Profile</span>
               <span class="p-0">
                 <span class="badge badge-success">1</span>
                 <i class="mdi mdi-account-outline ms-1"></i>
               </span>
             </a>
+
             <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="javascript:void(0)">
               <span>Settings</span>
               <i class="mdi mdi-settings"></i>
             </a>
+
             <div role="separator" class="dropdown-divider"></div>
             <h5 class="dropdown-header text-uppercase  ps-2 text-dark mt-2">Actions</h5>
-            <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="#">
-              <span>Lock Account</span>
-              <i class="mdi mdi-lock ms-1"></i>
-            </a>
+
             <a class="dropdown-item py-1 d-flex align-items-center justify-content-between" href="{{route('logout')}}">
               <span>Log Out</span>
               <i class="mdi mdi-logout ms-1"></i>
             </a>
+
           </div>
         </div>
       </li>
 
-
-
       @endauth
+
+
 
       @guest()
       <li class="nav-item dropdown">

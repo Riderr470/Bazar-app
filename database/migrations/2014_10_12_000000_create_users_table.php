@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('age')->nullable();
             $table->longText('address')->nullable();
             $table->string('phone')->nullable();
-            $table->string('image')->nullable();
+            $table->string('image')->default('default.jpg');
             $table->string('role')->default('user');
             $table->timestamps();
         });

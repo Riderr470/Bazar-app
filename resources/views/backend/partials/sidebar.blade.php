@@ -35,6 +35,20 @@
       </div>
     </li>
 
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic-3" aria-expanded="false" aria-controls="ui-basic-3">
+
+        <span class="menu-title">Banner</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic-3">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{{route('banner.create')}}">Create</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('banner.list')}}">Show Details</a></li>
+        </ul>
+      </div>
+    </li>
+
     <!-- <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic-3" aria-expanded="false" aria-controls="ui-basic-3">
 
