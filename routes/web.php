@@ -74,7 +74,7 @@ Route::name('category.')->prefix('Category')->group(function () {
     Route::get('/create', [CategoryController::class, 'createCategory'])->name('create');
     Route::post('/create', [CategoryController::class, 'storeCategory']);
 
-    Route::get('/list', [CategoryController::class, 'listCategory'])->name('details');
+    Route::get('/list', [CategoryController::class, 'listCategory'])->name('lists');
 });
 
 //wishlist

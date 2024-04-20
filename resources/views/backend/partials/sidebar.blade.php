@@ -10,16 +10,18 @@
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
 
-        <span class="menu-title">User</span>
+
+        <span class="menu-title">Category</span>
         <i class="menu-arrow"></i>
       </a>
       <div class="collapse" id="ui-basic">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="{{route('user.create')}}">Create</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{route('user.details')}}">Show Details</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('category.create')}}">Create</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('category.lists')}}">Show List</a></li>
         </ul>
       </div>
     </li>
+
 
     <li class="nav-item">
       <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic-2" aria-expanded="false" aria-controls="ui-basic-2">
@@ -30,7 +32,7 @@
       <div class="collapse" id="ui-basic-2">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="{{route('product.create')}}">Create</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{route('product.list')}}">Show Details</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('product.list')}}">Show List</a></li>
         </ul>
       </div>
     </li>
@@ -44,7 +46,23 @@
       <div class="collapse" id="ui-basic-3">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="{{route('banner.create')}}">Create</a></li>
-          <li class="nav-item"> <a class="nav-link" href="{{route('banner.list')}}">Show Details</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('banner.list')}}">Show List</a></li>
+        </ul>
+      </div>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic4" aria-expanded="false" aria-controls="ui-basic4">
+
+
+        <span class="menu-title">User</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic4">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href="{{route('user.create')}}">Create</a></li>
+          <li class="nav-item"> <a class="nav-link" href="{{route('user.details')}}">Show List</a></li>
         </ul>
       </div>
     </li>

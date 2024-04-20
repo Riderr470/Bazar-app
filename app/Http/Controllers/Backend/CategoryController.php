@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -20,7 +21,7 @@ class CategoryController extends Controller
      */
     public function createCategory()
     {
-        //
+        return view("backend.pages.category.categoryForm");
     }
 
     /**
@@ -28,12 +29,42 @@ class CategoryController extends Controller
      */
     public function storeCategory(Request $request)
     {
-        //
+        $request->validate([
+            'categoryName' => 'required',
+            'brandName' => 'required',
+            'image' => 'required|max:20240',
+
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            $img = $request->file('image');
+
+            $file_name = 'Img_cat-' . date('YmdHis') . '.' . $img->getClientOriginalExtension();
+
+
+            if ($img->isValid()) {
+                $img->storeAs('category', $file_name);
+            }
+        } else {
+
+            $file_name = 'default.jpg';
+        }
+
+        Category::create([
+            'categoryName' => $request->categoryName,
+            'brandName' => $request->brandName,
+            'image' => $file_name,
+        ]);
+
+        return redirect()->back();
     }
 
     public function listCategory(Request $request)
     {
-        //
+        $data = Category::all();
+
+        return view('backend.pages.category.list', compact('data'));
     }
 
     /**
