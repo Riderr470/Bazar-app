@@ -75,6 +75,10 @@ Route::name('category.')->prefix('Category')->group(function () {
     Route::post('/create', [CategoryController::class, 'storeCategory']);
 
     Route::get('/list', [CategoryController::class, 'listCategory'])->name('lists');
+    Route::get('/details/{id}', [CategoryController::class, 'show'])->name('details');
+
+    Route::get('/edit/{id}', [CategoryController::class, 'editCategory'])->name('edit');
+    Route::put('/update/{id}', [CategoryController::class, 'updateCategory'])->name('update');
 });
 
 //wishlist

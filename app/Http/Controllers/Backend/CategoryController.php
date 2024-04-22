@@ -57,6 +57,8 @@ class CategoryController extends Controller
             'image' => $file_name,
         ]);
 
+        notify()->success('Category created sucessfully');
+
         return redirect()->back();
     }
 
@@ -72,15 +74,54 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Category::find($id);
+
+        return view('backend.pages.category.details', compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editCategory(string $id)
     {
-        //
+        return view('backend.pages.category.edit');
+    }
+
+    public function updateCategory(Request $request, $id)
+    {
+        $categoryData = Category::find($id);
+
+        $request->validate([
+            'categoryName' => 'required',
+            'brandName' => 'required',
+            'image' => 'required|max:20240',
+
+        ]);
+
+        if ($request->hasFile('image')) {
+
+            $img = $request->file('image');
+
+            $file_name = 'Img_cat-' . date('YmdHis') . '.' . $img->getClientOriginalExtension();
+
+
+            if ($img->isValid()) {
+                $img->storeAs('category', $file_name);
+            }
+        } else {
+
+            $file_name = 'default.jpg';
+        }
+
+        $categoryData->update([
+            'categoryName' => $request->categoryName,
+            'brandName' => $request->brandName,
+            'image' => $file_name,
+        ]);
+
+        notify()->success('Category updated sucessfully');
+
+        return redirect()->route('category.lists');
     }
 
     /**
