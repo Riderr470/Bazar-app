@@ -21,7 +21,7 @@ class BannerController extends Controller
 
         $img = $request->file('image');
 
-        $file_name = 'Img-Bnr' . date('Ymdhsi') . '.' . $img->getClientOriginalExtension();
+        $file_name = 'Img-Bnr' . date('YmdHsi') . '.' . $img->getClientOriginalExtension();
 
 
         if ($img->isValid()) {

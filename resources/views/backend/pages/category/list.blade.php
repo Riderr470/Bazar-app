@@ -32,7 +32,7 @@
             <td>
                 <a class="btn btn-info" href="{{route('category.details', $category->id)}}">View</a>
                 <a class="btn btn-secondary" href="{{route('category.edit', $category->id)}}">Edit</a>
-                <a class="btn btn-danger" href="{{route('category.details', $category->id)}}">Delete</a>
+                <a class="btn btn-danger" href="{{route('category.edit', $category->id)}}">Delete</a>
             </td>
 
         </tr>

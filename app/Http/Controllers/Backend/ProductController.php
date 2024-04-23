@@ -44,6 +44,8 @@ class ProductController extends Controller
             'image' => $file_name,
         ]);
 
+        notify()->success("Product created successfully");
+
         return redirect()->back();
     }
 

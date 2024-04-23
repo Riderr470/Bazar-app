@@ -71,6 +71,7 @@ class UserController extends Controller
 
         ]);
 
+        notify()->success("User created successfully");
         return redirect()->back();
     }
 
@@ -162,6 +163,7 @@ class UserController extends Controller
 
         ]);
 
+        notify()->success("User updated successfully");
         return redirect()->back();
     }
 
