@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\Product;
@@ -12,7 +13,8 @@ class ProductController extends Controller
 {
     public function createProduct()
     {
-        return view("backend.pages.products.create");
+        $data = Category::all();
+        return view("backend.pages.products.create", compact('data'));
     }
 
     public function storeProduct(Request $request)
@@ -39,6 +41,7 @@ class ProductController extends Controller
         Product::create([
             'productName' => $request->productName,
             'price' => $request->price,
+            'category_id' => $request->category_id,
             'description' => $request->description,
             'quantity' => $request->quantity,
             'image' => $file_name,
@@ -52,7 +55,7 @@ class ProductController extends Controller
     public function showProductList()
     {
 
-        $product = Product::all();
+        $product = Product::with('category')->get();
         return view("backend.pages.products.lists", compact('product'));
     }
 

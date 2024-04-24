@@ -11,6 +11,7 @@
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Product Name</th>
+      <th scope="col">Category</th>
       <th scope="col">Price</th>
       <th scope="col">Description</th>
       <th scope="col">Quantity</th>
@@ -24,6 +25,7 @@
     <tr>
       <th scope="row">{{ $p->id }}</th>
       <td>{{$p->productName}}</td>
+      <td>{{$p->category->categoryName}}</td>
       <td>{{$p->price}}</td>
       <td class="text-truncate" style="max-width: 150px">{{$p->description}}</td>
       <td>{{$p->quantity}}</td>
@@ -32,7 +34,7 @@
       <td>{{$p->updated_at}}</td>
     </tr>
     @endforeach
-    
+
   </tbody>
 </table>
 

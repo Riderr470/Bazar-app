@@ -21,6 +21,16 @@
 
   </div>
   <div class="form-group">
+    <label for="category">Category</label>
+
+    <select class="form-control" name="category_id" id="category">
+      @foreach($data as $category)
+      <option value="{{$category->id}}">{{$category->categoryName}}</option>
+      @endforeach
+    </select>
+  </div>
+
+  <div class="form-group">
     <label for="price">Price</label>
     <input type="number" name="price" class="form-control" id="price" placeholder="Enter Price" value="{{old('price')}}">
   </div>

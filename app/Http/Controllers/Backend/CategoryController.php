@@ -31,7 +31,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'categoryName' => 'required',
-            'brandName' => 'required',
+            'status' => 'required',
             'image' => 'required|max:20240',
 
         ]);
@@ -53,7 +53,7 @@ class CategoryController extends Controller
 
         Category::create([
             'categoryName' => $request->categoryName,
-            'brandName' => $request->brandName,
+            'status' => $request->status,
             'image' => $file_name,
         ]);
 
@@ -93,7 +93,7 @@ class CategoryController extends Controller
 
         $request->validate([
             'categoryName' => 'required',
-            'brandName' => 'required',
+            'status' => 'required',
             'image' => 'required|max:20240',
 
         ]);
@@ -115,7 +115,7 @@ class CategoryController extends Controller
 
         $categoryData->update([
             'categoryName' => $request->categoryName,
-            'brandName' => $request->brandName,
+            'status' => $request->status,
             'image' => $file_name,
         ]);
 

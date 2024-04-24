@@ -20,8 +20,8 @@
 
     </div>
     <div class="form-group">
-        <label for="brandName">Brand Name</label>
-        <input type="text" name="brandName" class="form-control" id="brandName" placeholder="Enter Brand Name" value="{{old('brandName')}}">
+        <label for="status">Status</label>
+        <input type="text" name="status" class="form-control" id="status" placeholder="Enter status" value="{{old('brandName')}}">
 
     </div>
 
