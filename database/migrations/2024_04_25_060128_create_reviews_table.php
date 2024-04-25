@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order_lists', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('order_id');
-            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('order_lists');
+        Schema::dropIfExists('reviews');
     }
 };
