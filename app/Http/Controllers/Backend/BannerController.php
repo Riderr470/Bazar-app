@@ -16,6 +16,7 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'name' => 'required',
             'image' => 'required|image',
         ]);
 
@@ -29,7 +30,7 @@ class BannerController extends Controller
         }
 
         Banner::create([
-
+            'name' => $request->name,
             'image' => $file_name,
         ]);
 

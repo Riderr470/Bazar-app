@@ -16,6 +16,11 @@
     @endif
 
     <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name">
+    </div>
+
+    <div class="form-group">
         <label for="image">Image</label>
         <input type="file" name="image" class="form-control" id="image" placeholder="Enter Image">
     </div>
