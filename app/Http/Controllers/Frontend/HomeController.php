@@ -6,15 +6,16 @@ use App\Http\Controllers\Controller;
 use App\Models\Banner;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
 {
     public function viewHome()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
 
-        $banners = Banner::all();
+        $banner = Banner::all();
 
-        return view('frontend.pages.home', compact('products', 'banners'));
+        return view('frontend.pages.mainHome', compact('products', 'banner'));
     }
 }

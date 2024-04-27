@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-6">
         <h5>Image</h5>
-        <img src="{{url('app/category', $data->image)}}" alt="" width="200">
+        <img src="{{url('app/uploads/category', $data->image)}}" alt="" width="200">
     </div>
 </div>
 
