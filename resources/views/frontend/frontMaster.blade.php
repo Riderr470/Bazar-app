@@ -12,16 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/barfiller.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/elegant-icons.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/nice-select.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="https://preview.colorlib.com/theme/cake/css/style.css" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/flaticon.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/barfiller.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/magnific-popup.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/font-awesome.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/elegant-icons.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/nice-select.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/owl.carousel.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/slicknav.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url('frontend/css/style.css')}}" type="text/css">
     <script nonce="4d5bd136-fc4e-4efe-b077-72094de95ba8">
         try {
             (function(w, d) {
@@ -206,15 +206,15 @@
     </div>
 
 
-    <script src="https://preview.colorlib.com/theme/cake/js/jquery-3.3.1.min.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/bootstrap.min.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/jquery.nice-select.min.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/jquery.barfiller.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/jquery.magnific-popup.min.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/jquery.slicknav.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/owl.carousel.min.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/jquery.nicescroll.min.js"></script>
-    <script src="https://preview.colorlib.com/theme/cake/js/main.js"></script>
+    <script src="{{url('frontend/js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{url('frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{url('frontend/js/jquery.nice-select.min.js')}}"></script>
+    <script src="{{url('frontend/js/jquery.barfiller.js')}}"></script>
+    <script src="{{url('frontend/js/jquery.magnific-popup.min.js')}}"></script>
+    <script src="{{url('frontend/js/jquery.slicknav.js')}}"></script>
+    <script src="{{url('frontend/js/owl.carousel.min.js')}}"></script>
+    <script src="{{url('frontend/js/jquery.nicescroll.min.js')}}"></script>
+    <script src="{{url('frontend/js/main.js')}}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
