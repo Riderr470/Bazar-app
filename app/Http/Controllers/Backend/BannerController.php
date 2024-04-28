@@ -31,6 +31,7 @@ class BannerController extends Controller
 
         Banner::create([
             'name' => $request->name,
+            'catchphrase' => $request->catchphrase,
             'image' => $file_name,
         ]);
 

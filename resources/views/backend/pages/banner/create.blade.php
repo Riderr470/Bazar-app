@@ -21,8 +21,13 @@
     </div>
 
     <div class="form-group">
+        <label for="catchphrase">Catch Phrase</label>
+        <input type="text" name="catchphrase" class="form-control" id="catchphrase" placeholder="Enter Catch phrase">
+    </div>
+
+    <div class="form-group">
         <label for="image">Image</label>
-        <input type="file" name="image" class="form-control" id="image" placeholder="Enter Image">
+        <input type="file" name="image" class="form-control" id="image">
     </div>
 
 

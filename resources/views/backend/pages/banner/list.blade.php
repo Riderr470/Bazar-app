@@ -17,7 +17,7 @@
         <br>
         <img class="card-img" src="{{asset('app/uploads/banner/'.$d->image)}}" alt="Card image">
         <label class="m-2 mx-auto">Description:</label>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text">{{$d->catchphrase}}</p>
     </div>
 </div>
 <br>
