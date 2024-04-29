@@ -30,7 +30,7 @@
         </div>
         @php
         $isFirst = false;
-        @endphpx
+        @endphp
         @endforeach
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">

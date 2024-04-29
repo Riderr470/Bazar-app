@@ -90,7 +90,8 @@ textarea:focus {
   outline: none;
 }
 
-a:hover,
+a:hover {color:rgb(191, 29, 209);}
+
 a:focus {
   text-decoration: none;
   outline: none;

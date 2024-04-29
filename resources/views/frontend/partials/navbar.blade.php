@@ -23,7 +23,7 @@
 
       @auth()
 
-      <li class="nav-item nav-profile dropdown" style="margin-right: 100px;">
+      <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
           <div class="nav-profile-img">
             <img src="{{ asset('app/users/' . auth()->user()->image) }}" alt="image">
