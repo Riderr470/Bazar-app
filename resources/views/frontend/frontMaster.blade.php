@@ -2,6 +2,7 @@
 <html lang="zxx">
 
 <head>
+    @notifyCss
     <meta charset="UTF-8">
     <meta name="description" content="Cake Template">
     <meta name="keywords" content="Cake, unica, creative, html">
@@ -228,6 +229,10 @@
         gtag('config', 'UA-23581568-13');
     </script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v55bfa2fee65d44688e90c00735ed189a1713218998793" integrity="sha512-FIKRFRxgD20moAo96hkZQy/5QojZDAbyx0mQ17jEGHCJc/vi0G2HXLtofwD7Q3NmivvP9at5EVgbRqOaOQb+Rg==" data-cf-beacon='{"rayId":"87ac757a7c9ff440","version":"2024.4.0","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
+    @include('notify::components.notify')
+
+    @notifyJs
+
 </body>
 
 </html>

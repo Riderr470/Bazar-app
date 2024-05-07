@@ -2,34 +2,44 @@
 
 
 @section('content')
-<div class="col-md-6 offset-md-3">
-  <h2 class="text-center">Login</h2>
+<div class="container">
+  <div class="row d-flex justify-content-center" style=" margin-top: 20px; margin-bottom:20px;">
 
-  <form action="{{route('login')}}" method="post">
-    @csrf
-    @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-    @endif
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div class="col-md-3">
+
     </div>
 
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-    </div>
+    <div class="col-md-6" style="border:2px solid black; padding:10px;border-radius:15px;">
 
-    <div class="d-grid gap-2 col-6 mx-auto">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+      <h2 class="text-center">Login</h2>
 
-  </form>
+      <form action="{{route('login')}}" method="post">
+        @csrf
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" name="email" id="exampleInputEmail1" placeholder="">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button type="submit" class="btn primary-btn">Submit</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
 </div>
 @endsection

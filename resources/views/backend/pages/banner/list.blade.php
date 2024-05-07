@@ -3,7 +3,9 @@
 
 @section('content')
 
-
+<div class="container">
+    <a class="btn btn-primary" href="{{route('banner.create')}}">Create New Banner</a>
+</div><br>
 <h1>View All Products</h1>
 
 

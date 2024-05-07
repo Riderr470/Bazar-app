@@ -160,7 +160,18 @@ ol {
   text-transform: uppercase;
   padding: 14px 30px;
   color: #ffffff;
-  background: #f08632;
+  background: #de952fdf;
+  letter-spacing: 2px;
+}
+
+.secondary-btn {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  padding: 10px 20px;
+  color: #ffffff;
+  background: #000000df;
   letter-spacing: 2px;
 }
 
@@ -301,6 +312,7 @@ ol {
   padding: 2px 0;
   cursor: pointer;
 }
+
 .header__top__left ul li a {
   color: #111111;
 }
@@ -650,6 +662,11 @@ ol {
 }
 
 /*---------------------
+  Form
+-----------------------*/
+
+
+/*---------------------
   Class
 -----------------------*/
 .class {
@@ -818,10 +835,12 @@ ol {
 .testimonial__slider .col-lg-6 {
   max-width: 100%;
 }
+
 .testimonial__slider.owl-carousel .owl-dots {
   text-align: center;
   padding-top: 35px;
 }
+
 .testimonial__slider.owl-carousel .owl-dots button {
   height: 10px;
   width: 10px;
@@ -829,9 +848,11 @@ ol {
   border-radius: 50%;
   margin-right: 10px;
 }
+
 .testimonial__slider.owl-carousel .owl-dots button.active {
   background: rgba(17, 17, 17, 0.5);
 }
+
 .testimonial__slider.owl-carousel .owl-dots button:last-child {
   margin-right: 0;
 }
@@ -841,6 +862,7 @@ ol {
   padding: 40px 45px 35px 50px;
   position: relative;
 }
+
 .testimonial__item .rating {
   position: absolute;
   right: 50px;
@@ -877,6 +899,7 @@ ol {
   overflow: hidden;
   padding-top: 12px;
 }
+
 .testimonial__author__text h5 {
   color: #111111;
   font-weight: 600;
@@ -934,6 +957,9 @@ ol {
 /*---------------------
   Map
 -----------------------*/
+h5.break {
+  display: block;
+}
 .map {
   position: relative;
   height: 300px;
@@ -1526,6 +1552,9 @@ ol {
 /*---------------------
   Product Details
 -----------------------*/
+.p{
+  display: block;
+}
 .product-details {
   padding-top: 90px;
   padding-bottom: 0;
@@ -3101,6 +3130,7 @@ ol {
 }
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
+
 @media only screen and (min-width: 1200px) {
   .container {
     max-width: 1170px;

@@ -1,31 +1,39 @@
-@extends('frontend.master')
+@extends('frontend.frontMaster')
 
 
 @section('content')
 
 
-<h1>Prdouct Details</h1>
-
-
-<div class="row">
-    <div class="col-md-4">
-        <img src="{{asset('app/products/'.$productDetails->image)}}" class="img-fluid" style="max-width: 200px; height: auto;" alt="">
-    </div>
-
-    <div class="col-md-8">
-        <div class="d-flex flex-column justify-content-center h-100">
-            <h5>Product Name:</h5>
-            <p>{{ $productDetails->productName }}</p>
-            <h5>Product Description:</h5>
-            <p>{{ $productDetails->description }}</p>
-            <div class="col">
-                <a href="" class="btn btn-primary mr-2">Add to Cart</a>
-                <a href="" class="btn btn-primary">Add to Wishlist</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <div class="about__text">
+                <div class="section-title">
+                    <span>Product Name:</span>
+                    <h3>{{ $productDetails->productName }}</h3><br>
+                    <span>Product Description:</span>
+                    <p>{{ $productDetails->description }}</p>
+                </div>
             </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <h2>{{ $productDetails->category->categoryName }}</h2>
+            <div class="container">
+                <div class="d-flex justify-content-around">
+                    <img src="{{$productDetails->image}}" style="max-width: 200px;" alt="">
+                </div>
+
+                <a href="" class="btn primary-btn mr-2">Add to Cart</a>
+                <a href="" class="btn primary-btn">Add to Wishlist</a>
+            </div>
+
+
         </div>
     </div>
 </div>
-<p></p>
+
+
+
 
 
 @endsection

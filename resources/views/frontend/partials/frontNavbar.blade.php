@@ -6,12 +6,14 @@
                     <div class="header__top__inner">
                         <div class="header__top__left">
                             <ul>
-                                <li>Profile <span class="arrow_carrot-down"></span>
+                                @auth()
+                                <li>{{auth()->user()->name}} <span class="arrow_carrot-down"></span>
                                     <ul>
-                                        <li></li>
-                                        <li>USD</li>
+                                        <li><a href="{{route('user.profile', auth()->user()->id)}}">Profile</a></li>
+                                        <li><a href="{{route('logout')}}">Logout</a></li>
                                     </ul>
                                 </li>
+                                @endauth
 
 
 
@@ -25,21 +27,23 @@
                             <a href="./index.html"><img width="100" src="{{asset('images/svg/logo-no-background.svg')}}" alt></a>
                         </div>
                         <div class="header__top__right">
+                            @guest
 
                             <div class="header__top__right__links">
-                                <a href="#">Register</a>
+                                <a class="btn secondary-btn" href="{{route('register')}}">Register</a>
 
                             </div>
                             <div class="header__top__right__links">
-                                <a href="#">Login</a>
+                                <a class="btn secondary-btn" href="{{route('login')}}">Login</a>
 
                             </div>
+                            @endguest
 
 
 
 
                             <div class="header__top__right__cart">
-                                <a href="#"><img width="30" src="{{asset('images/others/cart.webp')}}" alt></a>
+                                <a href="#"><img width="35" src="{{asset('images/others/cart.webp')}}" alt></a>
                                 <div class="cart__price">Cart</div>
                             </div>
                         </div>
