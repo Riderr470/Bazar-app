@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Admin;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,7 +14,7 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        Admin::create([
             'name' => 'Ridan',
             'email' => 'Ridan@gmail.com',
             'password' => bcrypt('123456'),

@@ -24,7 +24,7 @@
                             </ul>
                         </div>
                         <div class="header__logo">
-                            <a href="./index.html"><img width="100" src="{{asset('images/svg/logo-no-background.svg')}}" alt></a>
+                            <a href="{{route('home')}}"><img width="100" src="{{asset('images/svg/logo-no-background.svg')}}" alt></a>
                         </div>
                         <div class="header__top__right">
                             @guest
