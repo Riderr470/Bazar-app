@@ -87,7 +87,7 @@
                         <h6><a href="{{route('product.details', $product->id)}}">{{$product->productName}}</a></h6>
                         <div class="product__item__price">${{$product->price}}</div>
                         <div class="cart_add">
-                            <a href="#">Add to cart</a>
+                            <a href="{{route('cart.add', $product->id)}}">Add to cart</a>
                         </div>
                     </div>
                 </div>

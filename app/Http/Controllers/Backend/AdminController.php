@@ -64,4 +64,12 @@ class AdminController extends Controller
         notify()->error('Invalid Username or Password');
         return redirect()->back();
     }
+
+    public function doLogout()
+    {
+        auth('adminGuard')->logout();
+
+        smilify('success', 'Log-out successful');
+        return redirect()->route('admin.login');
+    }
 }

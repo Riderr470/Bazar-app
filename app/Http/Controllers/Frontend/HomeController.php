@@ -18,4 +18,59 @@ class HomeController extends Controller
 
         return view('frontend.pages.mainHome', compact('products', 'banner'));
     }
+
+
+    public function cartView()
+    {
+        dd("cart");
+        return view('');
+    }
+
+    public function addToCart($id)
+    {
+        // dd("cart add");
+
+        $cart = session()->get('cart');
+        // dd($cart);
+
+        $products = Product::find($id);
+
+        if (isset($cart[$id])) {
+
+            $cart[$id]['quantity']++;
+        } else {
+
+            $cart[$id] = [
+
+                "name" => $products->productName,
+                "quantity" => 1,
+                "price" => $products->price,
+                "image" => $products->image,
+
+            ];
+        }
+
+        session()->put('cart', $cart);
+        notify()->success('Product added to the cart');
+
+        return redirect()->route('home');
+    }
+
+    public function cartRemoveItem($id)
+    {
+
+        $cart = session()->get('cart');
+
+        unset($cart[$id]);
+
+        session()->put('cart', $cart);
+
+        return redirect()->route('home');
+    }
+
+    public function cartClear()
+    {
+        session()->forget('cart');
+        return redirect()->back();
+    }
 }

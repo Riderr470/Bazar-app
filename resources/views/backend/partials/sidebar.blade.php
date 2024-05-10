@@ -110,7 +110,7 @@
 
       <li class="nav-item sidebar-user-actions">
         <div class="sidebar-user-menu">
-          <a href="#" class="nav-link">
+          <a href="{{route('admin.logout')}}" class="nav-link">
             <span class="menu-title">Log Out</span></a>
         </div>
       </li>

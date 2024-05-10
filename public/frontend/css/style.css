@@ -314,7 +314,7 @@ ol {
 }
 
 .header__top__left ul li a {
-  color: #111111;
+  color: #25b8bb;
 }
 .header__top__left ul li:hover ul {
   top: 24px;
@@ -329,11 +329,27 @@ ol {
   left: 0;
   top: 44px;
   opacity: 0;
+  width: auto;
+  min-width: 150px;
   visibility: hidden;
   z-index: 3;
   -webkit-transition: all, 0.3s;
   -o-transition: all, 0.3s;
   transition: all, 0.3s;
+}
+.header__top__left ul li ul li {
+    display: inline-block; /* Display list items inline */
+    vertical-align: top; /* Align list items to the top */
+    margin-right: 10px; /* Add some spacing between list items */
+}
+
+/* Style for the image */
+.header__top__left ul li ul li img {
+    display: inline-block; /* Display the image inline */
+    width: 20px; /* Adjust the width of the image as needed */
+    height: auto; /* Maintain the aspect ratio of the image */
+    vertical-align: middle; /* Align the image vertically in the middle with the text */
+    margin-right: 5px; /* Add some spacing between the image and the text */
 }
 .header__top__left ul li ul li {
   list-style: none;

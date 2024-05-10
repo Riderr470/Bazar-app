@@ -40,11 +40,39 @@
                             @endguest
 
 
+                            @php
+                            $t_price = 0;
+                            @endphp
 
 
                             <div class="header__top__right__cart">
-                                <a href="#"><img width="35" src="{{asset('images/others/cart.webp')}}" alt></a>
-                                <div class="cart__price">Cart</div>
+                                <div class="header__top__left" style="display: flex;   align-items:center;">
+                                    <a href="{{route('cart.view')}}"><img style="vertical-align: middle;" width="35" src="{{asset('images/others/cart.webp')}}" alt></a>
+                                    <ul>
+                                        <li>Cart
+                                            <ul>
+                                                @if(session()->has('cart') && !empty(session()->get('cart')))
+                                                @foreach(session()->get('cart') as $key=>$cart)
+                                                <li style="display: flex; align-items: center;">
+                                                    <img src="{{$cart['image']}}" alt="">{{ $cart['name'] }}
+                                                    <a class="btn site-btn" href="{{route('cart.remove', $key)}}">remove</a>
+                                                </li>
+                                                @php
+                                                $t_price += $cart['price'] * $cart['quantity'];
+                                                @endphp
+                                                @endforeach
+                                                <li><a class="btn site-btn" href="{{route('cart.clear')}}">Clear list</a></li>
+                                                @else
+                                                <li>Cart is empty</li>
+                                                @endif
+                                            </ul>
+                                        </li>
+                                        @if(session()->has('cart'))
+                                        <li>Total: {{ $t_price }}</li>
+                                        @endif
+                                    </ul>
+
+                                </div>
                             </div>
                         </div>
                     </div>

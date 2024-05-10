@@ -25,8 +25,8 @@ use App\Http\Controllers\Frontend\HomeController;
 //backend
 // admin
 
-Route::get('/login', [AdminController::class, 'adminLogin'])->name('login');
-Route::post('/login', [AdminController::class, 'doAdminLogin']);
+Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+Route::post('/admin/login', [AdminController::class, 'doAdminLogin']);
 
 Route::group(['middleware' => 'auth:adminGuard'], function () {
 
@@ -44,6 +44,8 @@ Route::group(['middleware' => 'auth:adminGuard'], function () {
         Route::post('/banner', [AdminController::class, 'storeBanner']);
         Route::get('/home/banner/{id}', [AdminController::class, 'editbannerForm'])->name('edit.banner');
         Route::put('/home/banner/edit{id}', [AdminController::class, 'updateBanner'])->name('home.banner.edit');
+
+        Route::get('/logout', [AdminController::class, 'doLogout'])->name('logout');
     });
 
 
@@ -119,6 +121,13 @@ Route::get('/', [HomeController::class, 'viewHome'])->name('home');
 
 Route::get('/Sign-up', [UserController::class, 'showRegisterPage'])->name('register');
 Route::post('/Sign-up', [UserController::class, 'storeUser']);
+
+//cart
+Route::get('/cart', [HomeController::class, 'cartView'])->name('cart.view');
+Route::get('/cart/add/{id}', [HomeController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart/remove/{id}', [HomeController::class, 'cartRemoveItem'])->name('cart.remove');
+Route::get('/cart/clear', [HomeController::class, 'cartClear'])->name('cart.clear');
+
 
 // Route::group(['middleware' => 'role:user'], function () {
 Route::group(['middleware' => 'auth:web, adminGuard'], function () {
