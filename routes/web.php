@@ -28,7 +28,7 @@ use App\Http\Controllers\Frontend\HomeController;
 Route::get('/admin/login', [AdminController::class, 'adminLogin'])->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'doAdminLogin']);
 
-Route::group(['middleware' => 'auth:adminGuard'], function () {
+Route::group(['middleware' => 'admin'], function () {
 
 
     Route::name('admin.')->prefix('admin')->group(function () {
@@ -129,18 +129,15 @@ Route::get('/cart/remove/{id}', [HomeController::class, 'cartRemoveItem'])->name
 Route::get('/cart/clear', [HomeController::class, 'cartClear'])->name('cart.clear');
 
 
+
 // Route::group(['middleware' => 'role:user'], function () {
-Route::group(['middleware' => 'auth:web, adminGuard'], function () {
 
+Route::get('/product/details/{id}', [ProductController::class, 'showProductDetails'])->name('product.details');
 
-    Route::get('/product/details/{id}', [ProductController::class, 'showProductDetails'])->name('product.details');
+Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/user/profile/{id}', [UserController::class, 'userProfile'])->name('user.profile');
     Route::put('/user/profile/edit{id}', [UserController::class, 'editUserProfile'])->name('user.profile.edit');
 
     Route::get('/logout', [UserController::class, 'doLogout'])->name('logout');
 });
-
-
-
-// Route::get('/Users', [UserController::class, 'users']);

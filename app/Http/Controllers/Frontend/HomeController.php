@@ -22,8 +22,9 @@ class HomeController extends Controller
 
     public function cartView()
     {
-        dd("cart");
-        return view('');
+        // dd("cart");
+        $cart = session()->get('cart');
+        return view('frontend.pages.cart', compact('cart'));
     }
 
     public function addToCart($id)
